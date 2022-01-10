@@ -4,16 +4,17 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if head is None:
-            return head
-        odd = head
-        even = even_head = head.next
-        while even and even.next:
-            odd.next = odd.next.next
-            odd = odd.next
-            even.next = even.next.next
-            even = even.next
-        odd.next = even_head
-        return head
-
+    def reverseBetween(
+        self, head: Optional[ListNode], left: int, right: int
+    ) -> Optional[ListNode]:
+        root = start = ListNode(None)
+        root.next = head
+        for _ in range(left - 1):
+            start = start.next
+        end = start.next
+        for _ in range(left - right):
+            tmp = start.next
+            start.next = end.next
+            end.next = end.next.next
+            start.next.next = tmp
+        return root.next
