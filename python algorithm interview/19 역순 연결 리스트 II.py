@@ -12,7 +12,7 @@ class Solution:
         for _ in range(left - 1):
             start = start.next
         end = start.next
-        for _ in range(left - right):
+        for _ in range(right - left):
             tmp = start.next
             start.next = end.next
             end.next = end.next.next
