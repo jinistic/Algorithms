@@ -19,7 +19,6 @@ class Solution:
         answer = []
 
         def dfs(index, path):
-            print(index, path)
             if len(path) == len(digits):
                 answer.append(path)
                 return
